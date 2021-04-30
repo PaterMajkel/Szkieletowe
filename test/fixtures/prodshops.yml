@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  product_id: 1
+  shop_id: 1
+  price: 9.99
+  date: 2021-04-14 20:04:17
+
+two:
+  id: 1
+  product_id: 1
+  shop_id: 1
+  price: 9.99
+  date: 2021-04-14 20:04:17

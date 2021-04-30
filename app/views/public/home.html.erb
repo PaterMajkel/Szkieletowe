@@ -1,0 +1,42 @@
+<head>
+
+<h1>Listing Products</h1>
+</head>
+<body>
+<table>
+  <thead>
+  <tr class="spaceRight">
+    <th colspan="100"></th>
+    <th>Panel uzytkownika</th>
+    <th>Zaloguj</th>
+
+
+  </tr>
+  </thead>
+</table>
+</br>
+<div>filtruj</div>
+<div>sortuj</div>
+<table>
+  <thead>
+  <tr>
+    <th>Nazwa</th>
+    <th>Kategoria</th>
+    <th>Firma</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.category %></td>
+      <td><%= product.brand %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</body>
+<br>
