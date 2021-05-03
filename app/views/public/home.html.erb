@@ -17,26 +17,26 @@
 </br>
 <div>filtruj</div>
 <div>sortuj</div>
-<table>
-  <thead>
-  <tr>
-    <th>Nazwa</th>
-    <th>Kategoria</th>
-    <th>Firma</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @products.each do |product| %>
-    <tr>
-      <td><%= product.name %></td>
-      <td><%= product.category %></td>
-      <td><%= product.brand %></td>
+<div class="album text-muted">
+  <div class="container">
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="card">
+          <strong class="card-text"><%= product.name %></strong>
+            <p class="card-text"><%= product.category %></p>
+              <img src='<%= product.image %>'/>
+            <p class="card-text"><%= product.brand %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%# paginate @products %>
+      </div>
+    </div>
+  </div>
+</div>
 
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 </body>
 <br>
