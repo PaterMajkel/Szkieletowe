@@ -3,12 +3,9 @@
 <h1>Listing Products</h1>
 </head>
 <body>
-<table>
-  <thead>
-  <tr class="spaceRight">
-    <th colspan="100"></th>
-    <th>Panel uzytkownika</th>
-    <th>Zaloguj sie</th>
+<% name= current_user.present? ? current_user.email : "(Nie zalogowany)" %>
+<div>Panel uzytkownika <%= name %></div>
+
 
 
   </tr>
