@@ -14,7 +14,7 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Wyloguj się',  destroy_user_session_path,:method => :delete, class:"nav-link" %>
+            <%= button_to 'Wyloguj się',  destroy_user_session_path,:method => :delete, class:"nav-link" %>
           </li>
           <% else %>
           <li class="nav-item">
