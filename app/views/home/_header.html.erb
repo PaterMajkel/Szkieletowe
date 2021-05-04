@@ -13,8 +13,8 @@
           <%= link_to 'O nas', home_about_path, class:"nav-link" %>
         </li>
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= button_to 'Wyloguj się',  destroy_user_session_path,:method => :delete, class:"nav-link" %>
+          <li class="nav-item ">
+            <%= button_to 'Wyloguj się',  destroy_user_session_path,:method => :delete, class:"btn btn-small btn-success" %>
           </li>
           <% else %>
           <li class="nav-item">
