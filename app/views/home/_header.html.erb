@@ -12,27 +12,25 @@
         <li class="nav-item">
           <%= link_to 'O nas', home_about_path, class:"nav-link" %>
         </li>
-
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-left">
         <% if user_signed_in? %>
           <li class="nav-item ">
             <%= button_to 'Wyloguj się',  destroy_user_session_path,:method => :delete, class:"btn btn-small btn-success" %>
           </li>
-        <% else %>
+          <% else %>
           <li class="nav-item">
-            <%= link_to 'Zaloguj się', new_user_session_path, class:"nav-link " %>
+            <%= link_to 'Zaloguj się', new_user_session_path, class:"nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to 'Zarejestruj się', new_user_registration_path, class:"nav-link" %>
           </li>
-        <% end %>
+          <% end %>
+
+        </li>
       </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </nav>
