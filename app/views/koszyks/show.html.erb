@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nazwa produktu:</strong>
+  <%= @koszyk.Nazwa_Produktu %>
+</p>
+
+<p>
+  <strong>Producent:</strong>
+  <%= @koszyk.Producent %>
+</p>
+
+<p>
+  <strong>Kod produktu:</strong>
+  <%= @koszyk.Kod_Produktu %>
+</p>
+
+<p>
+  <strong>Cena:</strong>
+  <%= @koszyk.Cena %>
+</p>
+
+<%= link_to 'Edit', edit_koszyk_path(@koszyk) %> |
+<%= link_to 'Back', koszyks_path %>

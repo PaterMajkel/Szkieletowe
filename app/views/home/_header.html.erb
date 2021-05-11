@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav navbar-left">
         <% if user_signed_in? %>
 
-          <li><%= link_to 'Koszyk', users_koszyk_path, class:"nav-link" %></li>
+          <li><%= link_to 'Koszyk', koszyks_path, class:"nav-link" %></li>
           <li><%= link_to 'Edytuj profil', edit_user_registration_path, class:"nav-link" %></li>
           <li><%= link_to 'Wyloguj się',  destroy_user_session_path, method: :delete, class:"nav-link" %></li>
 
