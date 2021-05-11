@@ -15,16 +15,11 @@
       </ul>
       <ul class="nav navbar-nav navbar-left">
         <% if user_signed_in? %>
-          <li class="nav-link dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Mój profil
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to 'Koszyk', users_koszyk_path, class:"dropdown-item" %></li>
-              <li><%= link_to 'Edytuj profil', edit_user_registration_path, class:"dropdown-item" %></li>
-              <li><%= link_to 'Wyloguj się',  destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
-            </ul>
-          </li>
+
+          <li><%= link_to 'Koszyk', users_koszyk_path, class:"nav-link" %></li>
+          <li><%= link_to 'Edytuj profil', edit_user_registration_path, class:"nav-link" %></li>
+          <li><%= link_to 'Wyloguj się',  destroy_user_session_path, method: :delete, class:"nav-link" %></li>
+
         <% else %>
           <li class="nav-item">
             <%= link_to 'Zaloguj się', new_user_session_path, class:"nav-link" %>
