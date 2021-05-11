@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Koszyks</h1>
+<h1>Lista Produktów w koszyku</h1>
 
-<table>
-  <thead>
+<table class="table table-hover table-bordered">
+  <thead class="table-dark">
     <tr>
-      <th>Nazwa produktu</th>
+      <th>Nazwa Produktu</th>
       <th>Producent</th>
-      <th>Kod produktu</th>
+      <th>Kod Produktu</th>
       <th>Cena</th>
       <th colspan="3"></th>
     </tr>
@@ -20,9 +20,8 @@
         <td><%= koszyk.Producent %></td>
         <td><%= koszyk.Kod_Produktu %></td>
         <td><%= koszyk.Cena %></td>
-        <td><%= link_to 'Show', koszyk %></td>
-        <td><% link_to 'Edit', edit_koszyk_path(koszyk) %></td>
-        <td><%= link_to 'Destroy', koszyk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', koszyk, class:"btn btn-seccondary" %></td>
+        <td><%= link_to 'Destroy', koszyk, class:"btn btn-seccondary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
