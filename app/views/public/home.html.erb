@@ -6,6 +6,32 @@
   <% name= current_user.present? ? current_user.login : "(Nie zalogowany)" %>
   <div> Panel uzytkownika <%= name %></div>
 
+  <center><div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 1000px; height: auto">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://www.zooplus.pl/magazyn/wp-content/uploads/2019/12/kot-przyb%C5%82%C4%99da-768x512.jpeg" class="d-block w-100" alt="kot1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i1.kwejk.pl/k/obrazki/2018/08/Vof0mKdN53qdTnPM.jpg" class="d-block w-100" alt="kot2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.zooplus.pl/magazyn/wp-content/uploads/2018/10/Lykoi-768x436.jpg" class="d-block w-100" alt="kot3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div></center>
 
 
 
