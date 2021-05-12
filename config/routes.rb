@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :koszyks
   get 'home/about'
   #get 'public/home'
   root 'public#home'
