@@ -6,8 +6,7 @@
           <strong class="card-text"><%= product.name %></strong>
           <p class="card-text"><%= product.category %></p>
           <p class="card-text"><%= product.brand %></p>
-
-          <img style="width: 250px; height: auto" src='<%=product.image%>'/>
+            <%=link_to image_tag(product.image, style: "width: 250px; height: auto" ), product_index_path,class: "nav-link" %>
           <% if !current_user.products.exists?(product.id) %>
             <%= form_tag(userproduct_create_path, method: "get") do %>
 
