@@ -1,2 +1,0 @@
-class Koszyk < ApplicationRecord
-end

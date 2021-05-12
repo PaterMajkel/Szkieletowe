@@ -3,35 +3,34 @@
 <h1>Listing Products</h1>
 </head>
 <body>
-<% name= current_user.present? ? current_user.login : "(Nie zalogowany)" %>
-<div>Panel uzytkownika <%= name %></div>
+  <% name= current_user.present? ? current_user.login : "(Nie zalogowany)" %>
+  <div>Panel uzytkownika <%= name %></div>
 
 
 
   </tr>
-  </thead>
-</table>
-</br>
-<div>filtruj</div>
-<div>sortuj</div>
+    </thead>
+      </table>
+        </br>
+          <div>filtruj</div>
+            <div>sortuj</div>
 
-<div class="album text-muted">
-  <div class="container">
-    <div class="row">
-      <% @products.each do |product| %>
-        <div class="card">
-          <strong class="card-text"><%= product.name %></strong>
-            <p class="card-text"><%= product.category %></p>
-            <p class="card-text"><%= product.brand %></p>
+            <div class="album text-muted">
+              <div class="container">
+                <div class="row">
+                  <% @products.each do |product| %>
+                    <div class="card">
+                      <strong class="card-text"><%= product.name %></strong>
+                        <p class="card-text"><%= product.category %></p>
+                        <p class="card-text"><%= product.brand %></p>
 
-            <img style="width: 250px; height: auto" src='<%=product.image%>'/>
-            <%=  %>>
+                        <img style="width: 250px; height: auto" src='<%=product.image%>'/>
 
-        </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
+                     </div>
+                   <% end %>
+                </div>
+              <div class="row">
+            <div class="col-md-12">
         <%# paginate @products %>
       </div>
     </div>
