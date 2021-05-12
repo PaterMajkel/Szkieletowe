@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'userproduct/create'
+  get 'userproduct/delete'
   get 'product/index'
   get 'product/observed'
   get 'product/all'

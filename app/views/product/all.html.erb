@@ -25,8 +25,9 @@
           <p class="card-text"><%= product.brand %></p>
 
           <img style="width: 250px; height: auto" src='<%=product.image%>'/>
-          <%= form_tag product_observed_path do %>
-          <%= hidden_field_tag :product_id , product.id %>
+          <%= form_tag(userproduct_create_path, method: "get") do %>
+
+            <%= hidden_field_tag :product_id, product.id %>
           <%= submit_tag "Dodaj do Obserwowanych" %>
           <% end %>
 

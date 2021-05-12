@@ -9,6 +9,7 @@ class ProductController < ApplicationController
     def index
       @products = Product.find(:id)
     end
+
 end
 
 
