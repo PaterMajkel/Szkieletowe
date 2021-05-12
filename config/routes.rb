@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'product/index'
   get 'product/observed'
+  get 'product/all'
   get 'home/about'
   #resources :product
   get 'product/observed'
