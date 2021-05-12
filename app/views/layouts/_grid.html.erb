@@ -6,17 +6,25 @@
           <strong class="card-text"><%= product.name %></strong>
           <p class="card-text"><%= product.category %></p>
           <p class="card-text"><%= product.brand %></p>
-            <%=link_to image_tag(product.image, style: "width: 250px; height: auto" ), product_index_path,class: "nav-link" %>
+            <%=link_to image_tag(product.image, style: "width: 250px; height: auto" ), product_path(product.id),class: "nav-link" %>
           <% if !current_user.products.exists?(product.id) %>
             <%= form_tag(userproduct_create_path, method: "get") do %>
 
               <%= hidden_field_tag :product_id, product.id %>
-              <%= submit_tag "Dodaj do Obserwowanych" %>
+              <br/>
+              <%= submit_tag "Dodaj do Obserwowanych", style: "position: absolute;
+                  bottom: 5px;
+                  left: 0;
+                  ", class: "btn btn-dark" %>
             <% end %>
           <%else %>
             <%= form_tag(userproduct_delete_path, method: :get)  do %>
-              <%= hidden_field_tag :product_id, product.id %>
-              <%= submit_tag "Usun z Obserwowanych" %>
+              <%= hidden_field_tag :product_id, product.id%>
+              <br/>
+              <%= submit_tag "Usun z Obserwowanych" , style: "position: absolute;
+                  bottom: 5px;
+                  left: 0;
+                  ", class: "btn btn-dark"%>
             <% end %>
 
           <% end%>

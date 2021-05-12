@@ -6,8 +6,8 @@ class ProductController < ApplicationController
     def all
       @products = Product.page(params[:page])
     end
-    def index
-      @products = Product.find(:id)
+    def show
+      @products = Product.find(params[:id])
     end
 
 end

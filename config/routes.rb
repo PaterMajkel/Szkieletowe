@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   get 'userproduct/create'
   get 'userproduct/delete'
   get 'userproduct/findID'
-  get 'product/index'
+  #get 'product/show'
   get 'product/observed'
   get 'product/all'
   get 'home/about'
   resources :userproduct
-  #resources :product
+  resources :product
   get 'product/observed'
   #get 'public/home'
   root 'public#home'
