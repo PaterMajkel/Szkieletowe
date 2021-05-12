@@ -1,18 +1,27 @@
 class UserproductController < ApplicationController
   def create
-    @userproducts=UserProduct.new(upro_params)
-    @userproducts.save
+      @userproducts=UserProduct.new(upro_params)
+      @userproducts.save
+
     redirect_to product_all_path
   end
 
-  def find
-    @userproducts.find(upro_params)
-    
+  def findID(user_id,product_id)
+    id=UserProduct.find(user_id,product_id)
+    if(:id.nil?)
+      return 0
+    end
+    return :id
+
+    redirect_to request.referrer
   end
 
   def delete
-    @userproduct=UserProduct.find(param[:id])
-    @userproduct.destroy
+    @userproduct=UserProduct.find_by(user_id: current_user.id, product_id: params[:product_id])
+    if @userproduct.present?
+      @userproduct.destroy
+      end
+    redirect_to request.referrer
   end
 
   private

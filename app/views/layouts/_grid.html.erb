@@ -1,0 +1,37 @@
+<div class="album text-muted">
+  <div class="container">
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="card">
+          <strong class="card-text"><%= product.name %></strong>
+          <p class="card-text"><%= product.category %></p>
+          <p class="card-text"><%= product.brand %></p>
+
+          <img style="width: 250px; height: auto" src='<%=product.image%>'/>
+          <% if !current_user.products.exists?(product.id) %>
+            <%= form_tag(userproduct_create_path, method: "get") do %>
+
+              <%= hidden_field_tag :product_id, product.id %>
+              <%= submit_tag "Dodaj do Obserwowanych" %>
+            <% end %>
+          <%else %>
+            <%= form_tag(userproduct_delete_path, method: :get)  do %>
+              <%= hidden_field_tag :product_id, product.id %>
+              <%= submit_tag "Usun z Obserwowanych" %>
+            <% end %>
+
+          <% end%>
+
+        </div>
+      <% end %>
+    </div>
+    <%= paginate @products %>
+    <div class="row">
+      <div class="col-md-12">
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

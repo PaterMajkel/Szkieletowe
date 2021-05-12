@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   get 'userproduct/create'
   get 'userproduct/delete'
+  get 'userproduct/findID'
   get 'product/index'
   get 'product/observed'
   get 'product/all'
   get 'home/about'
+  resources :userproduct
   #resources :product
   get 'product/observed'
   #get 'public/home'
