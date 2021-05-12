@@ -4,7 +4,8 @@
 </head>
 <body>
   <% name= current_user.present? ? current_user.login : "(Nie zalogowany)" %>
-  <div>Panel uzytkownika <%= name %></div>
+  <div> Panel uzytkownika <%= name %></div>
+  <div><%= link_to 'Edytuj profil', product_observed_path, class:"nav-link" %></div>
 
 
 
