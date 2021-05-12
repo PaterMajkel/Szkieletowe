@@ -1,5 +1,5 @@
 class PublicController < ApplicationController
   def home
-    @products = Product.all
+    @products = Product.page(params[:page])
   end
 end
