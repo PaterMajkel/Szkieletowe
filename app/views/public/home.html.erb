@@ -1,52 +1,12 @@
 <head>
 
-<h1>Listing Products</h1>
+  <h4><% name= current_user.present? ? current_user.login : "(Nie zalogowany)" %>
+    <div> Panel uzytkownika <%= name %></div></h4>
 </head>
 <body>
-  <% name= current_user.present? ? current_user.login : "(Nie zalogowany)" %>
-  <div> Panel uzytkownika <%= name %></div>
-
-  <center><div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 1000px">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="5000">
-        <img src="https://i.ibb.co/TqYQdm7/agd.png" class="d-block w-100" alt="kot1">
-        <div class="carousel-caption d-none d-md-block" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
-         <h5>Sprzęt AGD</h5>
-          <p>Remontujesz kuchnie? Sprawdź najniższe ceny sprzętu AGD!</p>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="5000">
-        <img src="https://i.ibb.co/5L2DN0y/fony.png" class="d-block w-100" alt="kot2">
-        <div class="carousel-caption d-none d-md-block" style="color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
-          <h5>Smartfony</h5>
-          <p>Masz dość swojego zacinającego się telefonu? Znajdź coś nowego w okazyjnej cenie!</p>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="5000">
-        <img src="https://i.ibb.co/0j6Byx7/tv.png" class="d-block w-100" alt="kot3">
-        <div class="carousel-caption d-none d-md-block" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
-          <h5>Telewizory</h5>
-          <p>Planujesz zmianę telewizora? Zobacz najlepsze oferty!</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div></center>
 
 
-
+  <%= render 'layouts/carousel' %>
 
 </body>
 <br>
