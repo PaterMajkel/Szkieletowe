@@ -1,0 +1,2 @@
+class HomepageCarousel < ApplicationRecord
+end
