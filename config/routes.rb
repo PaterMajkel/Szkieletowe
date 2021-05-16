@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :userproduct
   resources :product
   get 'product/observed'
+  #nowy
+  get 'search', to: "product#search"
   #get 'public/home'
   root 'public#home'
   get "/public", to: "public#home"
