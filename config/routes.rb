@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  #devise_for :users, :controllers => { :registrations => "users/registrations", :sessions => "users/sessions", :passwords =>       "users/passwords" }
-
+  devise_scope :user do
+    get 'after_signup_page', to: 'devise/registrations#after_signup'
+  end
+  devise_for :users , controllers: {registrations: "users/registrations", confirmations: "users/confirmations"}
   get 'userproduct/create'
   get 'userproduct/delete'
   get 'userproduct/findID'
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   #get 'public/home'
   root 'public#home'
   get "/public", to: "public#home"
-  devise_for :users
+  #devise_for :users
 
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
