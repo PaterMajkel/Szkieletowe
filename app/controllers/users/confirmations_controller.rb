@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class Users::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
@@ -11,11 +12,9 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # GET /resource/confirmation?confirmation_token=abcdef
-  def show
-    super do
-      sign_in(resource) if resource.errors.empty?
-    end
-  end
+  # def show
+  #   super
+  # end
 
   # protected
 
@@ -25,8 +24,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # The path used after confirmation.
-  #def after_confirmation_path_for(resource_name, resource)
-  #super(resource_name, resource)
-  #   sign_in(resource)
-  #end
+  # def after_confirmation_path_for(resource_name, resource)
+  #   super(resource_name, resource)
+  # end
 end
