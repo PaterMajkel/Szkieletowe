@@ -1,18 +1,19 @@
-<center><div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 1000px">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 1000px">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <% @carousels.each_with_index do |carousel, index| %>
+      <li data-target="#myCarousel" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>" aria-current="<%= index == 0 ? 'true' : '' %>" aria-label="Slide <%= index %>"></button>
+    <% end %>
   </div>
   <div class="carousel-inner">
-    <% @carousels.each do |carousel| %>
-    <div class="carousel-item active" data-bs-interval='<%= carousel.duration %>' >
-      <img src='<%= carousel.image %>' class="d-block w-100" alt='<%= carousel.alt %>'>
-      <div class="carousel-caption d-none d-md-block" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
-        <h5><%= carousel.heading %></h5>
-        <p><%= carousel.description %></p>
+    <% @carousels.each_with_index do |carousel, index| %>
+      <div class="carousel-item<%= index == 0 ? ' active' : '' %>" data-bs-interval='<%= carousel.duration %>'>
+        <img src='<%= carousel.image %>' class="d-block w-100" alt='<%= carousel.alt %>'>
+        <div class="carousel-caption d-none d-md-block" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+          <h5><%= carousel.heading %></h5>
+          <p><%= carousel.description %></p>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -23,4 +24,4 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div></center>
+</div>
