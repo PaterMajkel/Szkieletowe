@@ -12,6 +12,7 @@
             <p class="card-text"><%= product.category %></p>
             <p class="card-text"><%= product.brand %></p>
             <%=link_to image_tag(product.image, style: "width: 250px; height: auto" ), product_path(product.id),class: "nav-link" %>
+            <% if current_user %>
             <% if !current_user.products.exists?(product.id) %>
               <%= form_tag(userproduct_create_path, method: "get") do %>
 
@@ -35,6 +36,9 @@
             <% end%>
 
           </div>
+
+              <% end %>
+
         <% end %>
       <%end %>
     </div>
