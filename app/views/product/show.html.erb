@@ -2,3 +2,7 @@
 <p class="card-text"><%= @products.category %></p>
 <p class="card-text"><%= @products.brand %></p>
 <img style="width: 250px; height: auto" src='<%=@products.image%>'/>
+
+<%= line_chart ProductShop.map { |proshop|
+  {name: proshop.product.name, data: proshop.price.group_by_week(:date).count}
+} %>
