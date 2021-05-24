@@ -16,6 +16,8 @@ class ProductController < ApplicationController
       @products = Product.find(params[:id])
     end
 
+
+
 end
 
 

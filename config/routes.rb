@@ -10,9 +10,13 @@ Rails.application.routes.draw do
   #get 'product/show'
   get 'product/observed'
   get 'product/all'
+  get 'product/index'
   get 'home/about'
+  get 'productshop/create'
+  resources :productshop
   resources :userproduct
   resources :product
+  resources :shop
   get 'product/observed'
   #nowy
   get 'search', to: "product#search"
