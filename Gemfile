@@ -13,7 +13,7 @@ gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'recaptcha'
 gem 'better_errors' , ' ~>2.5', '>=2.5.1'
 gem "binding_of_caller"
-
+gem "chartkick"
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
