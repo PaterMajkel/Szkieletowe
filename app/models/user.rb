@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates_uniqueness_of :email
-  has_many :user_product
+  has_many :user_product, :dependent => :destroy
   has_many :products, :through=> :user_product
   after_initialize :default_values, :default_login
 
