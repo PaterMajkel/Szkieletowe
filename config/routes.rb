@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'product/index'
   get 'home/about'
   get 'productshop/create'
+  get 'productshop/getData'
   resources :productshop
   resources :userproduct
   resources :product

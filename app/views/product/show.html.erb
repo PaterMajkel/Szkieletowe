@@ -3,5 +3,13 @@
 <p class="card-text"><%= @products.brand %></p>
 <img style="width: 250px; height: auto" src='<%=@products.image%>'/>
 
+<% @products.product_shop.each do |product| %>
+  <strong class="card-text"><%= product.id %></strong>
+  <p class="card-text"><%= product.shop_id %></p>
+  <p class="card-text"><%= product.price %></p>
+  <br/>
+<% end %>
 
-<%= line_chart ProductShop.group(:product_id).group_by(:created_at).count %>
+
+
+<%= line_chart ProductShop.where(product_id: @products.id).group(:shop_id).group_by_minute(:created_at).count %>

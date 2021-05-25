@@ -102,6 +102,8 @@ GEM
     ffi (1.15.0-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.2.2)
+      activesupport (>= 5)
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
@@ -279,6 +281,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   chartkick
   devise
+  groupdate
   jbuilder (~> 2.7)
   kaminari (~> 1.2, >= 1.2.1)
   open-uri
