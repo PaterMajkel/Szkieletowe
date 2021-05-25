@@ -1,6 +1,6 @@
 class ProductshopController < ApplicationController
   def create
-    price = 999999999
+    price = 2137
     @shops = Shop.all
     @shops.each do |shop|
       Product.all.each do |product|
@@ -11,7 +11,7 @@ class ProductshopController < ApplicationController
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("div.m-priceBox_price").first
           if pricebox.nil?
-            price = 999999999
+            price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -20,11 +20,11 @@ class ProductshopController < ApplicationController
             price = price.to_f
           end
         when "euro.com.pl"
-          url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name)}"
+          url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name.gsub(' ', '%20'))}"
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("div.price-normal.selenium-price-normal").first
           if pricebox.nil?
-            price = 999999999
+            price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -37,7 +37,7 @@ class ProductshopController < ApplicationController
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("span.sc-6n68ef-0.sc-6n68ef-3.hNZEsQ").first
           if pricebox.nil?
-            price = 999999999
+            price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -50,7 +50,7 @@ class ProductshopController < ApplicationController
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("span.a-price_price").first
           if pricebox.nil?
-            price = 999999999
+            price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -62,7 +62,7 @@ class ProductshopController < ApplicationController
         else
           next
         end
-        if price != 999999999
+        if price != 2137
           @productshops = ProductShop.new(shop_id: shop.id, product_id: product.id, price: price, date: Time.now)
           @productshops.save
         end
