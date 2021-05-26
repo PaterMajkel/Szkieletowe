@@ -20,7 +20,7 @@ class ProductshopController < ApplicationController
             price = price.to_f
           end
         when "euro.com.pl"
-          if(product.serialcode.nil?)
+          if product.serial_code.nil?
             url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name.gsub(' ', '%20'))}"
           else
             url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serial_code.gsub(' ', '%20'))}"
@@ -40,7 +40,7 @@ class ProductshopController < ApplicationController
             price = price.to_f
           end
         when "x-kom.pl"
-          if(product.serialcode.nil?)
+          if product.serial_code.nil?
             url = "https://www.x-kom.pl/szukaj?q=#{product.name.gsub(' ', '%20')}"
           else
             url = "https://www.x-kom.pl/szukaj?q=#{product.serial_code.gsub(' ', '%20')}"
@@ -69,6 +69,27 @@ class ProductshopController < ApplicationController
             price.gsub(/[,]/, '.')
             price.tr('^0-9.', '')
             price = price.to_f
+          end
+        when "amazon.pl"
+          url = "https://www.amazon.pl/s?k=#{product.name.gsub(' ', '+')}"
+          doc = Nokogiri::HTML(URI.open(url))
+          pricebox = doc.css("span.a-price-whole").first
+          priceboxfrac = doc.css("span.a-price-fraction").first
+          if pricebox.nil?
+            price = 2137
+          else
+            price1 = pricebox.text.gsub(/\s+/, '')
+            price1.gsub(/[()-+.]/, '')
+            price1.gsub(/[,]/, '')
+            price1.tr('^0-9', '')
+
+            price2 = priceboxfrac.text.gsub(/\s+/, '')
+            price2.gsub(/[()-+.]/, '')
+            price2.gsub(/[,]/, '')
+            price2.tr('^0-9', '')
+
+
+            price = price1.to_f + price2.to_f/100.00
           end
 
         else
