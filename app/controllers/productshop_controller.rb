@@ -29,9 +29,10 @@ class ProductshopController < ApplicationController
           pricebox = doc.css("div.product-price.selenium-price-normal").first
           if pricebox.nil?
             pricebox = doc.css("div.price-normal.selenium-price-normal").first
-            if pricebox.nil?
-              price = 2137
-            end
+
+          end
+          if pricebox.nil?
+            price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
