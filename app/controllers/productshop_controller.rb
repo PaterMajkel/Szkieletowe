@@ -11,7 +11,7 @@ class ProductshopController < ApplicationController
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("div.m-priceBox_price").first
           if pricebox.nil?
-            price = 2137.42
+            price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -30,7 +30,7 @@ class ProductshopController < ApplicationController
           if pricebox.nil?
             pricebox = doc.css("div.price-normal.selenium-price-normal").first
             if pricebox.nil?
-              price = 2137.42
+              price = 2137
             end
           else
             price = pricebox.text.gsub(/\s+/, '')
@@ -49,7 +49,7 @@ class ProductshopController < ApplicationController
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("span.sc-6n68ef-0.sc-6n68ef-3.hNZEsQ").first
           if pricebox.nil?
-            price = 2137.42
+            price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -62,7 +62,7 @@ class ProductshopController < ApplicationController
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("span.a-price_price").first
           if pricebox.nil?
-            price = 2137.42
+            price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -74,7 +74,7 @@ class ProductshopController < ApplicationController
         else
           next
         end
-        if price != 2137.42
+        if price != 2137
           @productshops = ProductShop.new(shop_id: shop.id, product_id: product.id, price: price, date: Time.now)
           @productshops.save
         end
