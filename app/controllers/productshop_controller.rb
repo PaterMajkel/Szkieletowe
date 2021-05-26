@@ -11,7 +11,7 @@ class ProductshopController < ApplicationController
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("div.m-priceBox_price").first
           if pricebox.nil?
-            price = 2137,42
+            price = 2137.42
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -20,11 +20,11 @@ class ProductshopController < ApplicationController
             price = price.to_f
           end
         when "euro.com.pl"
-          url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name.gsub(' ', '%20'))}"
+          url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serialcode.gsub(' ', '%20'))}"
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("div.product-price.selenium-price-normal").first
           if pricebox.nil?
-            price = 2137,42
+            price = 2137.42
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -33,11 +33,11 @@ class ProductshopController < ApplicationController
             price = price.to_f
           end
         when "x-kom.pl"
-          url = "https://www.x-kom.pl/szukaj?q=#{product.name.gsub(' ', '%20')}"
+          url = "https://www.x-kom.pl/szukaj?q=#{product.serialcode.gsub(' ', '%20')}"
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("span.sc-6n68ef-0.sc-6n68ef-3.hNZEsQ").first
           if pricebox.nil?
-            price = 2137,42
+            price = 2137.42
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -50,7 +50,7 @@ class ProductshopController < ApplicationController
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("span.a-price_price").first
           if pricebox.nil?
-            price = 2137,42
+            price = 2137.42
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
@@ -62,7 +62,7 @@ class ProductshopController < ApplicationController
         else
           next
         end
-        if price != 2137,42
+        if price != 2137.42
           @productshops = ProductShop.new(shop_id: shop.id, product_id: product.id, price: price, date: Time.now)
           @productshops.save
         end
