@@ -2,14 +2,24 @@
 <p class="card-text"><%= @products.category %></p>
 <p class="card-text"><%= @products.brand %></p>
 <img style="width: 250px; height: auto" src='<%=@products.image%>'/>
-
-<% @products.product_shop.each do |product| %>
-  <strong class="card-text"><%= product.id %></strong>
-  <p class="card-text"><%= product.shop.name %></p>
-  <p class="card-text"><%= product.price %></p>
-  <br/>
-<% end %>
-
+<br/>
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <th scope="col">ID Produktu</th>
+    <th scope="col">Nazwa Sklepu</th>
+    <th scope="col">Cena</th>
+    <th scope="col">Link do sklepu</th>
+  </thead>
+  <tbody>
+    <% @products.product_shop.each do |product| %>
+      <tr>
+        <td><strong class="card-text"><%= product.id %></strong></td>
+        <td><p class="card-text"><%= product.shop.name %></p></td>
+        <td><p class="card-text"><%= product.price %></p></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
 <%= line_chart ProductShop.where(product_id: @products.id).group(:shop_id).group_by_minute(:created_at).count %>
