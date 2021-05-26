@@ -28,7 +28,10 @@ class ProductshopController < ApplicationController
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("div.product-price.selenium-price-normal").first
           if pricebox.nil?
-            price = 2137.42
+            pricebox = doc.css("div.price-normal.selenium-price-normal").first
+            if pricebox.nil?
+              price = 2137.42
+            end
           else
             price = pricebox.text.gsub(/\s+/, '')
             price.gsub(/[()-+.]/, '')
