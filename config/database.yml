@@ -28,6 +28,8 @@ default: &default
 development:
   <<: *default
   database: Szkieletowe_development
+  username: postgres
+  password: 12345
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
