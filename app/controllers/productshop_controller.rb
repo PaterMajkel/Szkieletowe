@@ -20,7 +20,11 @@ class ProductshopController < ApplicationController
             price = price.to_f
           end
         when "euro.com.pl"
-          url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serialcode.gsub(' ', '%20'))}"
+          if(product.serialcode.nil?)
+            url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name.gsub(' ', '%20'))}"
+          else
+            url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serialcode.gsub(' ', '%20'))}"
+          end
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("div.product-price.selenium-price-normal").first
           if pricebox.nil?
@@ -33,7 +37,12 @@ class ProductshopController < ApplicationController
             price = price.to_f
           end
         when "x-kom.pl"
-          url = "https://www.x-kom.pl/szukaj?q=#{product.serialcode.gsub(' ', '%20')}"
+          if(product.serialcode.nil?)
+            url = "https://www.x-kom.pl/szukaj?q=#{product.name.gsub(' ', '%20')}"
+          else
+            url = "https://www.x-kom.pl/szukaj?q=#{product.serialcode.gsub(' ', '%20')}"
+
+          end
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("span.sc-6n68ef-0.sc-6n68ef-3.hNZEsQ").first
           if pricebox.nil?
