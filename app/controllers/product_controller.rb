@@ -9,7 +9,7 @@ class ProductController < ApplicationController
     end
 
     def search
-      @products = Product.where("name LIKE ?", "%" + params[:q] + "%").page(params[:page])
+      @products = Product.where("lower(name) LIKE ? OR name LIKE ?", "%" + params[:q] + "%", "%" + params[:q] + "%").page(params[:page])
     end
 
     def show
