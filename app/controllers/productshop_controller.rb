@@ -12,7 +12,7 @@ class ProductshopController < ApplicationController
             doc = Nokogiri::HTML(URI.open(url))
           rescue Exception => exc
             logger.error("Message for the log file #{exc.message}")
-            flash[:notice] = "Amazon nie poszedł"
+            flash[:notice] = "Mediamarkt nie poszedł"
             next
 
           end
@@ -36,7 +36,7 @@ class ProductshopController < ApplicationController
             doc = Nokogiri::HTML(URI.open(url))
           rescue Exception => exc
             logger.error("Message for the log file #{exc.message}")
-            flash[:notice] = "Amazon nie poszedł"
+            flash[:notice] = "Euro nie poszło"
             next
 
           end
@@ -84,7 +84,7 @@ class ProductshopController < ApplicationController
             doc = Nokogiri::HTML(URI.open(url))
           rescue Exception => exc
             logger.error("Message for the log file #{exc.message}")
-            flash[:notice] = "Amazon nie poszedł"
+            flash[:notice] = "Media Expert nie poszło"
             next
 
           end
