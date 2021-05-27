@@ -47,7 +47,15 @@ class ProductshopController < ApplicationController
           else
 
           end
-          doc = Nokogiri::HTML(URI.open(url))
+          doc
+          begin
+            doc = Nokogiri::HTML(URI.open(url))
+          rescue Exception => exc
+            logger.error("Message for the log file #{exc.message}")
+            flash[:notice] = "x-kom nie poszedł"
+            next
+
+          end
           pricebox = doc.css("span.sc-6n68ef-0.sc-6n68ef-3.hNZEsQ").first
           if pricebox.nil?
             price = 2137
