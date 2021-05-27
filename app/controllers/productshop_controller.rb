@@ -17,7 +17,7 @@ class ProductshopController < ApplicationController
             price=price.gsub(/[()-+.]/, '')
             price=price.gsub(/[,]/, '.')
             price=price.tr('^0-9.', '')
-            price=price = price.to_f
+            price= price.to_f
           end
         when "euro.com.pl"
           url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serial_code)}"
