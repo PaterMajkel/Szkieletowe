@@ -111,7 +111,7 @@ class ProductshopController < ApplicationController
         else
           next
         end
-        if price != 2137
+        if price != 2137 || !price.nil?
           @productshops = ProductShop.new(shop_id: shop.id, product_id: product.id, price: price, date: Time.now)
           @productshops.save
         end
