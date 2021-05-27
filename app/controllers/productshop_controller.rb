@@ -8,7 +8,14 @@ class ProductshopController < ApplicationController
         when "mediamarkt.pl"
           url = "https://mediamarkt.pl/search?query%5Bmenu_item%5D=&query%5Bquerystring%5D=#{product.name.gsub(' ', '+')}"
           #url+=product.name.gsub(' ','+')
-          doc = Nokogiri::HTML(URI.open(url))
+          begin
+            doc = Nokogiri::HTML(URI.open(url))
+          rescue Exception => exc
+            logger.error("Message for the log file #{exc.message}")
+            flash[:notice] = "Amazon nie poszedł"
+            next
+
+          end
           pricebox = doc.css("div.m-priceBox_price").first
           if pricebox.nil?
             price = 2137
@@ -25,7 +32,14 @@ class ProductshopController < ApplicationController
           if !product.serial_code.nil?
             url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serial_code)}"
           end
-          doc = Nokogiri::HTML(URI.open(url))
+          begin
+            doc = Nokogiri::HTML(URI.open(url))
+          rescue Exception => exc
+            logger.error("Message for the log file #{exc.message}")
+            flash[:notice] = "Amazon nie poszedł"
+            next
+
+          end
           pricebox = doc.css("div.product-price.selenium-price-normal").first
           if pricebox.nil?
             pricebox = doc.css("div.price-normal.selenium-price-normal").first
@@ -66,7 +80,14 @@ class ProductshopController < ApplicationController
           end
         when "mediaexpert.pl"
           url = "https://www.mediaexpert.pl/search?query[menu_item]=&query[querystring]=#{product.name.gsub(' ', '%20')}"
-          doc = Nokogiri::HTML(URI.open(url))
+          begin
+            doc = Nokogiri::HTML(URI.open(url))
+          rescue Exception => exc
+            logger.error("Message for the log file #{exc.message}")
+            flash[:notice] = "Amazon nie poszedł"
+            next
+
+          end
           pricebox = doc.css("span.a-price_price").first
           if pricebox.nil?
             price = 2137
@@ -111,7 +132,7 @@ class ProductshopController < ApplicationController
         else
           next
         end
-        if price != 2137 || !price.nil?
+        if price != 2137.to_f || !price.nil?
           @productshops = ProductShop.new(shop_id: shop.id, product_id: product.id, price: price, date: Time.now)
           @productshops.save
         end
