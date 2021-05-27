@@ -21,10 +21,10 @@ class ProductshopController < ApplicationController
             price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
-            price=price.gsub(/[()-+.]/, '')
-            price=price.gsub(/[,]/, '.')
-            price=price.tr('^0-9.', '')
-            price= price.to_f
+            price = price.gsub(/[()-+.]/, '')
+            price = price.gsub(/[,]/, '.')
+            price = price.tr('^0-9.', '')
+            price = price.to_f
           end
         when "euro.com.pl"
           url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name)}"
@@ -32,26 +32,33 @@ class ProductshopController < ApplicationController
           if !product.serial_code.nil?
             url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serial_code)}"
           end
+          path=nil
+          response = Net::HTTP.get_response(URI.parse(url))
+          if response.code == "302"
+            path = response['location'].split('|')[0]
+          end
+          if(!path.nil?)
+            url="https://euro.com.pl#{path}"
+          end
+
           begin
             doc = Nokogiri::HTML(URI.open(url))
           rescue Exception => exc
             logger.error("Message for the log file #{exc.message}")
             flash[:notice] = "Euro nie poszło"
             next
-
           end
           pricebox = doc.css("div.product-price.selenium-price-normal").first
           if pricebox.nil?
             pricebox = doc.css("div.price-normal.selenium-price-normal").first
-
           end
           if pricebox.nil?
             price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
-            price=price.gsub(/[()-+.]/, '')
-            price=price.gsub(/[,]/, '.')
-            price=price.tr('^0-9.', '')
+            price = price.gsub(/[()-+.]/, '')
+            price = price.gsub(/[,]/, '.')
+            price = price.tr('^0-9.', '')
             price = price.to_f
           end
         when "x-kom.pl"
@@ -73,9 +80,9 @@ class ProductshopController < ApplicationController
             price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
-            price=price.gsub(/[()-+.]/, '')
-            price=price.gsub(/[,]/, '.')
-            price=price.tr('^0-9.', '')
+            price = price.gsub(/[()-+.]/, '')
+            price = price.gsub(/[,]/, '.')
+            price = price.tr('^0-9.', '')
             price = price.to_f
           end
         when "mediaexpert.pl"
@@ -93,9 +100,9 @@ class ProductshopController < ApplicationController
             price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
-            price=price.gsub(/[()-+.]/, '')
-            price=price.gsub(/[,]/, '.')
-            price=price.tr('^0-9.', '')
+            price = price.gsub(/[()-+.]/, '')
+            price = price.gsub(/[,]/, '.')
+            price = price.tr('^0-9.', '')
             price = price.to_f
           end
         when "amazon.pl"
@@ -117,16 +124,15 @@ class ProductshopController < ApplicationController
           else
             price1 = pricebox.text.gsub(/\s+/, '')
             price1 = price1.gsub(/[()-+.]/, '')
-            price1 =  price1.gsub(/[,]/, '')
-            price1 =  price1.tr('^0-9', '')
+            price1 = price1.gsub(/[,]/, '')
+            price1 = price1.tr('^0-9', '')
 
             price2 = priceboxfrac.text.gsub(/\s+/, '')
-            price2 =price2.gsub(/[()-+.]/, '')
-            price2 =price2.gsub(/[,]/, '')
-            price2 =price2.tr('^0-9', '')
+            price2 = price2.gsub(/[()-+.]/, '')
+            price2 = price2.gsub(/[,]/, '')
+            price2 = price2.tr('^0-9', '')
 
-
-            price = price1.to_f + price2.to_f/100.00
+            price = price1.to_f + price2.to_f / 100.00
           end
 
         else
@@ -145,6 +151,5 @@ class ProductshopController < ApplicationController
     redirect_to request.referrer
 
   end
-
 
 end
