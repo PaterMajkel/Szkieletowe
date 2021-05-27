@@ -14,16 +14,16 @@ class ProductshopController < ApplicationController
             price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
-            price.gsub(/[()-+.]/, '')
-            price.gsub(/[,]/, '.')
-            price.tr('^0-9.', '')
-            price = price.to_f
+            price=price.gsub(/[()-+.]/, '')
+            price=price.gsub(/[,]/, '.')
+            price=price.tr('^0-9.', '')
+            price=price = price.to_f
           end
         when "euro.com.pl"
           if product.serial_code.nil?
-            url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name.gsub(' ', '%20'))}"
+            url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name)}"
           else
-            url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serial_code.gsub(' ', '%20'))}"
+            url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serial_code)}"
           end
           doc = Nokogiri::HTML(URI.open(url))
           pricebox = doc.css("div.product-price.selenium-price-normal").first
@@ -35,16 +35,16 @@ class ProductshopController < ApplicationController
             price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
-            price.gsub(/[()-+.]/, '')
-            price.gsub(/[,]/, '.')
-            price.tr('^0-9.', '')
+            price=price.gsub(/[()-+.]/, '')
+            price=price.gsub(/[,]/, '.')
+            price=price.tr('^0-9.', '')
             price = price.to_f
           end
         when "x-kom.pl"
           if product.serial_code.nil?
-            url = "https://www.x-kom.pl/szukaj?q=#{product.name.gsub(' ', '%20')}"
+            url = "https://www.x-kom.pl/szukaj?q=#{product.name.gsub.gsub(' ', '%20')}"
           else
-            url = "https://www.x-kom.pl/szukaj?q=#{product.serial_code.gsub(' ', '%20')}"
+            url = "https://www.x-kom.pl/szukaj?q=#{product.serial_code}"
 
           end
           doc = Nokogiri::HTML(URI.open(url))
@@ -53,9 +53,9 @@ class ProductshopController < ApplicationController
             price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
-            price.gsub(/[()-+.]/, '')
-            price.gsub(/[,]/, '.')
-            price.tr('^0-9.', '')
+            price=price.gsub(/[()-+.]/, '')
+            price=price.gsub(/[,]/, '.')
+            price=price.tr('^0-9.', '')
             price = price.to_f
           end
         when "mediaexpert.pl"
@@ -66,9 +66,9 @@ class ProductshopController < ApplicationController
             price = 2137
           else
             price = pricebox.text.gsub(/\s+/, '')
-            price.gsub(/[()-+.]/, '')
-            price.gsub(/[,]/, '.')
-            price.tr('^0-9.', '')
+            price=price.gsub(/[()-+.]/, '')
+            price=price.gsub(/[,]/, '.')
+            price=price.tr('^0-9.', '')
             price = price.to_f
           end
         when "amazon.pl"
@@ -80,14 +80,14 @@ class ProductshopController < ApplicationController
             price = 2137
           else
             price1 = pricebox.text.gsub(/\s+/, '')
-            price1.gsub(/[()-+.]/, '')
-            price1.gsub(/[,]/, '')
-            price1.tr('^0-9', '')
+            price1 = price1.gsub(/[()-+.]/, '')
+            price1 =  price1.gsub(/[,]/, '')
+            price1 =  price1.tr('^0-9', '')
 
             price2 = priceboxfrac.text.gsub(/\s+/, '')
-            price2.gsub(/[()-+.]/, '')
-            price2.gsub(/[,]/, '')
-            price2.tr('^0-9', '')
+            price2 =price2.gsub(/[()-+.]/, '')
+            price2 =price2.gsub(/[,]/, '')
+            price2 =price2.tr('^0-9', '')
 
 
             price = price1.to_f + price2.to_f/100.00
