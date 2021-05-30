@@ -21,5 +21,7 @@
   </tbody>
 </table>
 
+<%#= line_chart(@data) %>
 
-<%= line_chart ProductShop.where(product_id: @products.id).group(:shop_id).group_by_minute(:created_at).count %>
+<%= line_chart ProductShop.where(product_id: @products.id).group(:shop_id).group_by_week(:created_at).maximum(:price), title:"Zmiany w cenach", xtitle: "Data", ytitle: "Cena" %>
+<%#= line_chart ProductShop.group(:price).group_by_day(:created_at).count %>
