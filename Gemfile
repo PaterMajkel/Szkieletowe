@@ -15,6 +15,7 @@ gem 'better_errors' , ' ~>2.5', '>=2.5.1'
 gem "binding_of_caller"
 gem 'chartkick'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'mail_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

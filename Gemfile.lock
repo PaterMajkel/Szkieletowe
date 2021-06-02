@@ -135,6 +135,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mail_form (1.9.0)
+      actionmailer (>= 5.2)
+      activemodel (>= 5.2)
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
@@ -284,6 +287,7 @@ DEPENDENCIES
   groupdate
   jbuilder (~> 2.7)
   kaminari (~> 1.2, >= 1.2.1)
+  mail_form
   open-uri
   pg (~> 1.1)
   pry-rails
