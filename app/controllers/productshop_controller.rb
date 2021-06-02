@@ -27,10 +27,10 @@ class ProductshopController < ApplicationController
             price = price.to_f
           end
         when "euro.com.pl"
-          url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name)}"
+          url = "https://m.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.name)}"
 
           if !product.serial_code.nil?
-            url = "https://www.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serial_code)}"
+            url = "https://m.euro.com.pl/search.bhtml?keyword=#{CGI.escape(product.serial_code)}"
           end
           path=nil
           response = Net::HTTP.get_response(URI.parse(url))
@@ -38,7 +38,7 @@ class ProductshopController < ApplicationController
             path = response['location'].split('|')[0]
           end
           if(!path.nil?)
-            url="https://euro.com.pl#{path}"
+            url="https://m.euro.com.pl#{path}"
           end
 
           begin
