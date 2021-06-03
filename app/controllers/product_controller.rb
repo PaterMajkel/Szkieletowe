@@ -2,7 +2,7 @@ class ProductController < ApplicationController
   helper_method :sort_column, :sort_direction
 
     def observed
-       @products = current_user.products.order(:product_id).page(params[:page])
+       @products = current_user.products.order(sort_column + " " + sort_direction).order(:product_id).page(params[:page])
     end
     def all
       @products = Product.order(sort_column + " " + sort_direction).page(params[:page])
