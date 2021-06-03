@@ -1,24 +1,24 @@
  <div align="center">
-  <h3>Send A message to Us</h3>
-
+  <h3>Wyślij wiadomość do moderacji</h3>
+<p>Jeżeli masz jakieś sugestie dotyczące strony, bądź chciałbyś zaproponować jakiś produkt napisz do nas poprzez poniższy formularz</p>
   <%= form_for @contact do |f| %>
     <div class="col-md-6">
-      <%= f.label :name %></br>
+      <%= f.label :Imie %></br>
       <%= f.text_field  :name, required: true, class: "contact-form-text-area" %></br>
 
       <%= f.label :email %></br>
       <%= f.text_field :email, required: true, class: "contact-form-text-area" %></br>
 
-      <%= f.label :message %></br>
+      <%= f.label :Wiadomość %></br>
       <%= f.text_area :message, rows: 8, cols: 40, required: true, class: "contact-form-text-area",
-                      placeholder: "Send me a message"%></br>
+                      placeholder: "Zaproponuj produkt lub napisz cos!"%></br>
 
       <div class= "hidden">
         <%= f.label :nickname %>
         <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
       </div>
 
-      <%= f.submit 'Send Message', class: 'btn btn-primary' %>
+      <%= f.submit 'Wyślij', class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>
