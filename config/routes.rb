@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :contacts, only: [:new, :create]
-  get 'contact/new'
   devise_scope :user do
     get 'after_signup_page', to: 'devise/registrations#after_signup'
   end
@@ -27,7 +25,7 @@ Rails.application.routes.draw do
   root 'public#home'
   get "/public", to: "public#home"
   #devise_for :users
-
+  resources :contacts, only: [:new, :create]
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

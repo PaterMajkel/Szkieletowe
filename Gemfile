@@ -16,6 +16,7 @@ gem "binding_of_caller"
 gem 'chartkick'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'mail_form'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
