@@ -12,6 +12,9 @@
         <li class="nav-item">
           <%= link_to 'O nas', home_about_path, class:"nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to 'Kontakt', new_contact_path, class:"nav-link" %>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
         <% if user_signed_in? %>
