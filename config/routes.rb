@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'category/delete'
   devise_scope :user do
     get 'after_signup_page', to: 'devise/registrations#after_signup'
   end
