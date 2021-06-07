@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :userproduct
   resources :product
   resources :shop
+  resources :category
   get 'product/observed'
   #nowy
   get 'search', to: "product#search"

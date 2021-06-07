@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_122401) do
+ActiveRecord::Schema.define(version: 2021_06_07_222427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,17 +21,19 @@ ActiveRecord::Schema.define(version: 2021_06_02_122401) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "category_products", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "homepage_carousels", force: :cascade do |t|
     t.string "image"
     t.string "alt"
     t.integer "duration"
     t.text "heading"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "product_categories", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -47,7 +49,6 @@ ActiveRecord::Schema.define(version: 2021_06_02_122401) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.string "category"
     t.string "brand"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
