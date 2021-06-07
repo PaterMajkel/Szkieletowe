@@ -1,0 +1,24 @@
+ <div align="center">
+  <h3>Wyślij wiadomość do moderacji</h3>
+<p>Jeżeli masz jakieś sugestie dotyczące strony, bądź chciałbyś zaproponować jakiś produkt napisz do nas poprzez poniższy formularz</p>
+  <%= form_for @contact do |f| %>
+    <div class="col-md-6">
+      <%f.label :Imie %>
+      <%= f.text_field  :name, class: "form-control", placeholder:"Imię",autofocus: true, autocomplete: "name", required: true %></br>
+
+      <% f.label :email %>
+      <%= f.text_field :email,  class: "form-control", placeholder:"Email", autofocus: true, autocomplete: "email", required: true %>
+
+      <%= f.label :Wiadomość %></br>
+      <%= f.text_area :message, rows: 8, cols: 40, required: true, class: "form-control",autofocus: true,autocomplete: "message",
+                      placeholder: "Zaproponuj produkt lub napisz cos!"%></br>
+
+      <div class= "hidden">
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
+      </div>
+
+      <%= f.submit 'Wyślij', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
