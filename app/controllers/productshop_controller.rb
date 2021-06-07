@@ -105,43 +105,6 @@ class ProductshopController < ApplicationController
             price = price.tr('^0-9.', '')
             price = price.to_f
           end
-
-        when "oleole.pl"
-          url = "https://m.oleole.pl/search.bhtml?keyword=#{CGI.escape(product.name)}"
-
-          if !product.serial_code.nil?
-            url = "https://m.oleole.pl/search.bhtml?keyword=#{CGI.escape(product.serial_code)}"
-          end
-          path=nil
-          response = Net::HTTP.get_response(URI.parse(url))
-          if response.code == "302"
-            path = response['location'].split('|')[0]
-          end
-          if(!path.nil?)
-            url="https://m.oleole.pl#{path}"
-          end
-
-          begin
-            doc = Nokogiri::HTML(URI.open(url))
-          rescue Exception => exc
-            logger.error("Message for the log file #{exc.message}")
-            flash[:notice] = "oleole nie poszło"
-            next
-          end
-          pricebox = doc.css("div.product-price.selenium-price-normal").first
-          if pricebox.nil?
-            pricebox = doc.css("div.price-normal.selenium-price-normal").first
-          end
-          if pricebox.nil?
-            price = 2137
-          else
-            price = pricebox.text.gsub(/\s+/, '')
-            price = price.gsub(/[()-+.]/, '')
-            price = price.gsub(/[,]/, '.')
-            price = price.tr('^0-9.', '')
-            price = price.to_f
-          end
-
         when "amazon.pl"
           url = "https://www.amazon.pl/s?k=#{product.name.gsub(' ', '+')}"
           doc
