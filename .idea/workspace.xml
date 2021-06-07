@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7391c5d9-53e1-4233-9c58-a97407a73c41" name="Default Changelist" comment="Nie znaleziono muzgu">
+      <change beforePath="$PROJECT_DIR$/.browserslistrc" beforeDir="false" afterPath="$PROJECT_DIR$/.browserslistrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Szkieletowe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Szkieletowe.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/contacts/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/contacts/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/product/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/product/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/webpack" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/webpack-dev-server" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack-dev-server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack/development.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/development.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack/environment.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/environment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack/production.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/production.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpacker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpacker.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,13 +39,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="LogFilters">
-    <option name="FILTER_ERRORS" value="false" />
-    <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
-    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1s21Sl6udScoSU4NkC3Hy4H0qIT" />
   <component name="ProjectViewState">
@@ -175,7 +183,6 @@
       <workItem from="1621186755945" duration="3182000" />
       <workItem from="1621280786612" duration="1785000" />
       <workItem from="1621882477907" duration="3572000" />
-      <workItem from="1622795714979" duration="1348000" />
     </task>
     <task id="LOCAL-00001" summary="buziolki">
       <created>1620742962235</created>
@@ -236,8 +243,5 @@
     <MESSAGE value="search taki nawet lepszy" />
     <MESSAGE value="Nie znaleziono muzgu" />
     <option name="LAST_COMMIT_MESSAGE" value="Nie znaleziono muzgu" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Szkieletowe@Development__Szkieletowe.rcov" NAME="Development: Szkieletowe Coverage Results" MODIFIED="1622796467454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Szkieletowe" />
   </component>
 </project>
