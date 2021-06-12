@@ -5,7 +5,6 @@
       <% @products.each do |product| %>
         <div class="card">
           <strong class="card-text"><%= product.name %></strong>
-          <% @product = product %>
           <%if !product.category.nil? %>
             <p class="card-text"><%= product.category.name %></p>
             <%end %>
