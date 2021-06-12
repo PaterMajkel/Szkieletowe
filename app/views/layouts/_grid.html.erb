@@ -5,6 +5,10 @@
       <% @products.each do |product| %>
         <div class="card">
           <strong class="card-text"><%= product.name %></strong>
+          <% @product = product %>
+          <%if !product.category.nil? %>
+            <p class="card-text"><%= product.category.name %></p>
+            <%end %>
           <p class="card-text"><%= product.brand %></p>
             <%=link_to image_tag(product.image, style: "width: 250px; height: auto" ), product_path(product.id),class: "nav-link" %>
           <% if current_user %>
