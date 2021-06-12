@@ -1,6 +1,6 @@
 <strong class="card-text"><%= @products.name %></strong>
 
-<%if !@products.category.name.nil? %>
+<%if !@products.category.nil? %>
   <p class="card-text"><%= @products.category.name %></p>
 <%end %>
 <p class="card-text"><%= @products.brand %></p>
