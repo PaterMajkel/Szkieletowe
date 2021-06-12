@@ -11,8 +11,8 @@ task :generate_vapid do
   vapid_key = Webpush.generate_key
 
   # Save these in your application server settings
-  vapid_key.public_key
-  vapid_key.private_key
+  File.write('./vapid_keys/private_key', vapid_key.private_key)
+  File.write('./vapid_keys/public_key', vapid_key.public_key)
 
   # Or you can save in PEM format if you prefer
   vapid_key.to_pem

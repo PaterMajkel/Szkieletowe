@@ -7,6 +7,9 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   has_many :user_product, :dependent => :destroy
   has_many :products, :through=> :user_product
+  has_many :notifications, as: :recipient, dependent: :destroy
+  has_many :web_notification, :dependent => :destroy
+
   after_initialize :default_values, :default_login
 
   private

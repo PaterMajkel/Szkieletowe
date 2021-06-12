@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'webnotifications/index'
   get 'category/delete'
   devise_scope :user do
     get 'after_signup_page', to: 'devise/registrations#after_signup'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   resources :product
   resources :shop
   resources :category
+  resources :webnotifications
   get 'product/observed'
   #nowy
   get 'search', to: "product#search"
