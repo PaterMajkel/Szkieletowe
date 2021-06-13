@@ -1,6 +1,7 @@
 class ProductController < ApplicationController
   helper_method :sort_column, :sort_direction
 
+
     def observed
        @products = current_user.products.order(sort_column + " " + sort_direction).order(:product_id).page(params[:page])
     end
@@ -11,6 +12,9 @@ class ProductController < ApplicationController
     def search
       @products = Product.where("lower(name) LIKE ? OR name LIKE ?", "%" + params[:q] + "%", "%" + params[:q] + "%").page(params[:page])
     end
+  def filtr
+    @products = @products.filtr(params[:product][:category_id]) if params.try(:product).try(:category_id)
+  end
 
     def show
       @products = Product.find(params[:id])
@@ -25,6 +29,7 @@ class ProductController < ApplicationController
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
     end
+
 end
 
 
