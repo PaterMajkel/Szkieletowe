@@ -8,6 +8,6 @@ class Product < ApplicationRecord
 
   # scope :filter_by_category, ->(category_name) {where product_category_name: category_name}#nowe
   #scope :filter_by_starts_with, -> (name) { where("name like ?", "#{name}%")}#nowe
-  scope :filtr, -> (params){where(category_id:params)}
+  # scope :filtr, -> (params){where(category_id:params)}
   paginates_per 6
 end

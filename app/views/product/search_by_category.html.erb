@@ -6,7 +6,7 @@
         <% @products.each do |product| %>
           <div class="card">
             <strong class="card-text"><%= product.name %></strong>
-            <%if !product.category.nil? %>
+            <%if product.category.exists? %>
               <p class="card-text"><%= product.category.name %></p>
             <%end %>
             <p class="card-text"><%= product.brand %></p>
@@ -40,7 +40,7 @@
 
         <% end %>
     </div>
-    <%= paginate @products %>
+    <#%= paginate @products %>
     <div class="row">
       <div class="col-md-12">
       </div>

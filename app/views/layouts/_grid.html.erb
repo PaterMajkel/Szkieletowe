@@ -1,6 +1,6 @@
 <%= sortable "name", "Sortuj po nazwie" %>
 
-<%= form_tag("/filtr", method: 'get') do%>
+<%= form_tag("/search_by_category", method: 'get') do%>
   <%=label_tag(:category_id, "Select a Category") %>
   <%= collection_select(:product ,:category_id, Category.all, :id, :name) %>
   <%= submit_tag("Filtr") %>

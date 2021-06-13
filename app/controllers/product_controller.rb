@@ -12,8 +12,18 @@ class ProductController < ApplicationController
     def search
       @products = Product.where("lower(name) LIKE ? OR name LIKE ?", "%" + params[:q] + "%", "%" + params[:q] + "%").page(params[:page])
     end
-  def filtr
-    @products = @products.filtr(params[:product][:category_id]) if params.try(:product).try(:category_id)
+  def search_by_category
+    # @products = Product.all.category.where(id: params[:category_id])
+
+    to_show=[]
+    Product.all.each do |prod|
+      if prod.category
+      if prod.category.id==params[:category_id]
+        to_show.append(prod)
+      end
+      end
+    end
+    @products=to_show
   end
 
     def show
