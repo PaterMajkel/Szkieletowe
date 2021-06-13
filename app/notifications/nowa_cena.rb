@@ -7,13 +7,13 @@ class NowaCena < Noticed::Base
   # Add your delivery methods
   #
   # deliver_by :database
-   deliver_by :email, mailer: "ApplicationMailer"
+  #deliver_by :email, mailer: "ApplicationMailer"
   # deliver_by :slack
    deliver_by :webpush, class: "DeliveryMethods::Webpush"
 
   # Add required params
   #
-  param :ProductShop
+  param :productshop
 
   # Define helper methods to make rendering easier.
   #
