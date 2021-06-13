@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'product/observed'
   #nowy
   get 'search', to: "product#search"
+  get 'filtr', to: "product#filtr"
   #get 'public/home'
   root 'public#home'
   get "/public", to: "public#home"
