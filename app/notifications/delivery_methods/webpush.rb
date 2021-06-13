@@ -1,9 +1,9 @@
 class DeliveryMethods::Webpush < Noticed::DeliveryMethods::Base
   def deliver
     # Logic for sending the notification
-    info = params[:ProductShop]
-    recipient.web_notification.each do |sub|
-      sub.pushnotif("Cena #{info.Product.name} uległa zmniejszeniu do #{info.price}")
+    info = params[:productshop]
+    @recipient.web_notification.each do |sub|
+      sub.pushnotif("Cena #{info.product.name} uległa zmniejszeniu do #{info.price}", "#{info.shop.domain}")
     end
   end
 

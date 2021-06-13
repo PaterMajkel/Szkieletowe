@@ -1,6 +1,7 @@
 class ProductshopController < ApplicationController
   def create
     price = 2137
+    oldPrices=old_prices
     @shops = Shop.all
     @shops.each do |shop|
       Product.all.each do |product|
@@ -178,15 +179,45 @@ class ProductshopController < ApplicationController
         if !price.nil?
 
           if price != 2137
-            @productshops = ProductShop.new(shop_id: shop.id, product_id: product.id, price: price, date: Time.now)
+            @productshops = ProductShop.new(shop_id: shop.id, product_id: product.id, price: price, date: Time.at((Time.now.to_f / 360).round * 360))
             @productshops.save
           end
         end
 
       end
+
+    end
+    newPrices = old_prices
+    if(newPrices.nil?)
+      return
+    end
+    oldPrices.each do |old|
+      newPrices.each do |new|
+        if(old.nil?)
+          break
+        else
+          if(old.product_id==new.product_id)
+            if(new.price<old.price)
+              NowaCena.with(productshop: new).deliver(Product.where(id: new.product_id).first.users.all)
+              break
+
+            end
+          end
+
+        end
+      end
     end
     redirect_back fallback_location: '/'
 
   end
+  private
+  def old_prices
+    oldProductPrice=[]
+    Product.all.each do |prod|
+      item=ProductShop.where(product_id: prod.id).order(date: :desc,price: :asc).first
+      oldProductPrice.append(item)
 
+    end
+    return oldProductPrice
+  end
 end
