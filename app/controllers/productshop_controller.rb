@@ -185,7 +185,7 @@ class ProductshopController < ApplicationController
 
       end
     end
-    redirect_to request.referrer
+    redirect_back fallback_location: '/'
 
   end
 

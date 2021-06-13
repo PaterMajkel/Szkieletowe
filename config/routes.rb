@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :shop
   resources :category
   resources :webnotifications
+  get 'adminfun', to: 'public#adminfun'
   get 'product/observed'
   #nowy
   get 'search', to: "product#search"

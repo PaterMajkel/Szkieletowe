@@ -17,7 +17,11 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
+
         <% if user_signed_in? %>
+          <% if current_user.admin==true %>
+            <li><%= link_to 'Funkcje Admina', adminfun_path, class:"nav-link" %></li>
+            <% end %>
           <li><%= link_to 'Produkty Obserwowane', product_observed_path, class:"nav-link" %></li>
           <li><%= link_to 'Edytuj profil', edit_user_registration_path, class:"nav-link" %></li>
           <li><%= link_to 'Wyloguj się',  destroy_user_session_path, method: :delete, class:"nav-link" %></li>

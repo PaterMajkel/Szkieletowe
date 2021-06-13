@@ -13,13 +13,13 @@ class NowaCena < Noticed::Base
 
   # Add required params
   #
-  # param :post
+  param :ProductShop
 
   # Define helper methods to make rendering easier.
   #
-  # def message
-  #   t(".message")
-  # end
+  def message
+     t(".message")
+  end
   #
   # def url
   #   post_path(params[:post])
