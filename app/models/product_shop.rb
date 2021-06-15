@@ -199,7 +199,7 @@ class ProductShop < ApplicationRecord
     end
     oldPrices.each do |old|
       newPrices.each do |new|
-        if(old.nil?)
+        if(old.nil? || new.nil?)
           break
         else
           if(old.product_id==new.product_id)
