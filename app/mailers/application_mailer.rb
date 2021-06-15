@@ -2,6 +2,10 @@ class ApplicationMailer < ActionMailer::Base
   default from: 'from@example.com'
   layout 'mailer'
   def nowacena_notification
-    mail(to: "micbo26@gmail.com", subject: 'nowa cena');
-  end
+    @unsubcribe = Rails.application.message_verifier(:unsubscribe).generate(@user.id)
+    @info = params[:productshop]
+    if(@recipient.subbed==true)
+    mail(to: @recipient.email, subject: 'Nowa cena!');
+    end
+    end
 end
