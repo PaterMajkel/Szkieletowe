@@ -6,21 +6,22 @@
 <p class="card-text"><%= @products.brand %></p>
 <img style="width: 250px; height: auto" src='<%=@products.image%>'/>
 <br/>
+<br/>
+<br/>
+<br/>
+<h3> Najlepsza oferta w tej chwili</h3>
 <table class="table table-striped table-hover table-bordered">
   <thead>
-    <th scope="col">ID Produktu</th>
     <th scope="col">Nazwa Sklepu</th>
     <th scope="col">Cena</th>
-    <th scope="col">Link do sklepu</th>
+    <th scope="col">Data</th>
   </thead>
   <tbody>
-    <% @products.product_shop.each do |product| %>
       <tr>
-        <td><strong class="card-text"><%= product.id %></strong></td>
-        <td><p class="card-text"><%= product.shop.name %></p></td>
-        <td><p class="card-text"><%= product.price %></p></td>
+          <td><p class="card-text"><%= @product_shops.shop.name %></p></td>
+          <td><p class="card-text"><%= @product_shops.price %></p></td>
+          <td><p class="card-text"><%= @product_shops.date %></p></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 

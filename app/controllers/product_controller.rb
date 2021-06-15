@@ -28,6 +28,7 @@ class ProductController < ApplicationController
 
     def show
       @products = Product.find(params[:id])
+      @product_shops=@products.product_shop.order(date: :desc, price: :asc).first
     end
   # ponizej deklaruje sie domyslne sortowanie
   # teraz jest ustawione tak zeby sortowalo po dacie dodania produktu od najnowszego
