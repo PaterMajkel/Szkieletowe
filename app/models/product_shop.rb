@@ -4,6 +4,8 @@ class ProductShop < ApplicationRecord
 
   def self.scraper
     price = 2137
+    puts 'check'
+    return 'test'
     oldPrices=old_prices
     @shops = Shop.all
     @shops.each do |shop|
