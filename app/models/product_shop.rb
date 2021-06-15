@@ -199,15 +199,22 @@ class ProductShop < ApplicationRecord
     end
     oldPrices.each do |old|
       newPrices.each do |new|
-        if(old.nil? || new.nil?)
+        if(old.nil?)
+          puts "brak dawnej ceny w \"each do\""
           break
         else
+          if(new.nil?)
+            puts "brak nowej ceny w \"each do\""
+            next
+          else
           if(old.product_id==new.product_id)
-            if(new.price<old.price)
+            if(new.price.to_f<old.price.to_f)
+              puts "wysylam wiadomosci za productshop id: #{new.id}"
               NowaCena.with(productshop: new).deliver(Product.where(id: new.product_id).first.users.all)
               break
 
             end
+          end
           end
 
         end
@@ -223,6 +230,7 @@ class ProductShop < ApplicationRecord
       oldProductPrice.append(item)
 
     end
+    puts "zbieram ceny"
     return oldProductPrice
   end
 end
