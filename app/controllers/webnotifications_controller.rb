@@ -1,8 +1,6 @@
 class WebnotificationsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    user=current_user
-    user.update(subbed: true)
   end
   def create
     notification = WebNotification.find_by(auth_key: params[:keys][:auth])
