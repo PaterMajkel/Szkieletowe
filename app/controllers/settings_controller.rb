@@ -4,7 +4,7 @@ class SettingsController < ApplicationController
     @user = User.find(user)
     if @user.update(subbed: false)
       flash[:notice] = 'Subscription Cancelled'
-      redirect_to root_url
+      #redirect_to root_url
     else
       flash[:alert] = 'There was a problem'
       render :unsubscribe
