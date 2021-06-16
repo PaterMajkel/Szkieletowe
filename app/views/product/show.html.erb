@@ -29,7 +29,7 @@
 </table>
 
 <%#= line_chart(@data) %>
-<%= line_chart ProductShop.where(product_id: @products.id).group(:shop_id, :date).sort.maximum(:price),
+<%= line_chart ProductShop.where(product_id: @products.id).group(:shop_id, :date).maximum(:price),
    title:"Zmiany w cenach", xtitle: "Data", ytitle: "Cena",suffix: "zł",download:true, discrete: false%>
 <%#= line_chart ProductShop.group(:price).group_by_day(:created_at).count %>
 
