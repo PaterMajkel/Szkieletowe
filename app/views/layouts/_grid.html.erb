@@ -1,11 +1,11 @@
 <%= sortable "name", "Sortuj po nazwie" %>
-
-<%= form_tag("/search_by_category", method: 'get') do%>
-  <%=label_tag(:category_id, "Select a Category") %>
-  <%= select_tag("category_id", options_from_collection_for_select(Category.all, "id", "name")) %>
-  <%= submit_tag("Filtr by category") %>
-<%end %>
-
+<% if request.original_fullpath != "/product/observed" %>
+  <%= form_tag("/search_by_category", method: 'get') do%>
+    <%=label_tag(:category_id, "Select a Category") %>
+    <%= select_tag("category_id", options_from_collection_for_select(Category.all, "id", "name")) %>
+    <%= submit_tag("Filtr by category") %><br>
+  <%end %>
+  <% end %>
 <div class="album text-muted">
   <div class="container">
     <div class="row">
