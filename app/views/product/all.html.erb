@@ -15,9 +15,10 @@
 
 <%= sortable "name", "Sortuj po nazwie" %>
 <%= form_tag("/search_by_category", method: 'get') do%>
-  <%=label_tag(:category_id, "Select a Category") %>
+  <%=label_tag(:category_id, "Filtruj po kategorii") %>
   <%= select_tag("category_id", options_from_collection_for_select(Category.all, "id", "name")) %>
-  <%= submit_tag("Filtr by category") %><br>
+  <%= submit_tag "Filtruj", class: "btn btn-success" %>
+  <br>
 <%end %>
 
 <%= render 'layouts/grid' %>
