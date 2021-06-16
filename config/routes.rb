@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   #nowy
   get 'search', to: "product#search"
   get 'search_by_category', to: "product#search_by_category"
+  get 'search_by_category', to: "userproduct#search_by_category"
   #get 'public/home'
   root 'public#home'
   get "/public", to: "public#home"
