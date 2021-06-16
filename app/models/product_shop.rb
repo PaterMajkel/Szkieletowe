@@ -184,7 +184,7 @@ class ProductShop < ApplicationRecord
         if !price.nil?
 
           if price != 2137
-            @productshops = ProductShop.new(shop_id: shop.id, product_id: product.id, price: price, date: Time.at((Time.now.to_f / 21600).round * 21600))
+            @productshops = ProductShop.new(shop_id: shop.id, product_id: product.id, price: price, date: Time.at((Time.now.to_f / 3600).round * 3600))
             @productshops.save
             puts "Stworzono nowy produkt o id:#{@productshops.id}"
           end

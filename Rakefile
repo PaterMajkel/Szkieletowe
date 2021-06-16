@@ -17,3 +17,16 @@ task :generate_vapid do
   # Or you can save in PEM format if you prefer
   vapid_key.to_pem
 end
+
+task :generate_productshops => :environment do
+  for i in (0..50)
+    Product.all.each do |product|
+      Shop.all.each do |shop|
+        ProductShop.new(price: rand(1000..5000),product_id: product.id, shop_id: shop.id, date: Time.at(((Time.now.to_f / 3600).round - 50+i) * 3600)).save
+    end
+
+
+    end
+
+  end
+end
