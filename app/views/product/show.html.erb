@@ -1,3 +1,8 @@
+<head>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="path/to/chartkick.js"></script>
+</head>
 <strong class="card-text"><%= @products.name %></strong>
 
 <%if !@products.category.nil? %>
@@ -26,6 +31,7 @@
 </table>
 
 <%#= line_chart(@data) %>
-
-<%= line_chart ProductShop.where(product_id: @products.id).group(:shop_id).group_by_week(:created_at).maximum(:price), title:"Zmiany w cenach", xtitle: "Data", ytitle: "Cena" %>
+<%= line_chart ProductShop.where(product_id: @products.id).group(:shop_id, :date).maximum(:price),
+               adapter: "highcharts", title:"Zmiany w cenach", xtitle: "Data", ytitle: "Cena",suffix: "zł",download:true, discrete: false%>
 <%#= line_chart ProductShop.group(:price).group_by_day(:created_at).count %>
+
