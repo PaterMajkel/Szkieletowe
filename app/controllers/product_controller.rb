@@ -14,16 +14,22 @@ class ProductController < ApplicationController
     end
   def search_by_category
     # @products = Product.all.category.where(id: params[:category_id])
-
-    to_show=[]
-    Product.all.each do |prod|
-      if prod.category
-      if prod.category.id==params[:category_id]
-        to_show.append(prod)
-      end
-      end
+    # to_show=[]
+    #Product.all.each do |prod|
+    # if prod.category
+    # if prod.category.id==params[:product_category_id]
+    #   to_show.append(prod)
+    # end
+    # end
+    #end
+    #@products=to_show.page(params[:page])
+    #
+    to_show=ProductCategory.where(category_id: params[:category_id])
+    zmienna=[]
+    to_show.each do |prod|
+      zmienna << prod.product_id
     end
-    @products=to_show
+    @products=Product.where(id: zmienna).page(params[:page])
   end
 
     def show
