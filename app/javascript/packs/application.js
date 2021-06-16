@@ -14,6 +14,4 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "chartkick/chart.js"
-//= require highcharts
 //= require chartkick
-import "chartkick/highcharts"
