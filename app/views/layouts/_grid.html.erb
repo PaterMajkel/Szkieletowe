@@ -2,8 +2,8 @@
 
 <%= form_tag("/search_by_category", method: 'get') do%>
   <%=label_tag(:category_id, "Select a Category") %>
-  <%= select_tag("category_id", options_from_collection_for_select(Category.all, "id", "name")) %>
-  <%= submit_tag("Filtr by category") %>
+  <%= collection_select(:product ,:category_id, Category.all, :id, :name) %>
+  <%= submit_tag("Filtr") %>
 <%end %>
 
 <div class="album text-muted">
