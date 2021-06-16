@@ -26,6 +26,7 @@ class UserproductController < ApplicationController
     @products=UserProduct.where(user_id: current_user.id, product_id: zmienna)
   end
 
+
   def delete
     @userproduct=UserProduct.find_by(user_id: current_user.id, product_id: params[:product_id])
     if @userproduct.present?

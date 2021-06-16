@@ -22,7 +22,8 @@ class ProductController < ApplicationController
     @products=Product.where(id: zmienna).page(params[:page])
   end
 
-    def show
+
+  def show
       @products = Product.find(params[:id])
       @product_shops=@products.product_shop.order(date: :desc, price: :asc).first
     end
