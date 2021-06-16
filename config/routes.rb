@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   root 'public#home'
   get "/public", to: "public#home"
   get 'settings/unsubscribe'
+  get 'settings/update'
   #devise_for :users
   resources :contacts, only: [:new, :create]
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

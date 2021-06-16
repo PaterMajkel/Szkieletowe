@@ -1,9 +1,0 @@
-Hej <%= @recipent.login %>,
-
-Produkt, który obserwujesz: <%=@info.products.name %> właśnie stracił na cenie w sklepie <%=@info.shops.name %>!
-Kosztuje teraz tylko <%=@info.price %>zł!
-
-Nie przegap okazji!
-
-Aby odsubskrybować kliknij:
-<%= link_to "Unsubscribe", settings_unsubscribe_url(id: @unsubscribe) %>

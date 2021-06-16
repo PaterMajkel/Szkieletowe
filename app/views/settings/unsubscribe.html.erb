@@ -1,2 +1,7 @@
-<h1>Settings#unsubscribe</h1>
-<p>Find me in app/views/settings/unsubscribe.html.erb</p>
+<h4>Odsubskrybuj maile od Big Boundle Company</h4>
+<p>Po odsubskrybowaniu nie będziesz dostawać więcej notyfikacji mailowych</p>
+<%= form_for(@user, url: settings_update_path(id: @user), :method => :get) do |f| %>
+  <%= f.hidden_field(:subscription, value: false) %>
+  <%= f.submit 'Unsubscribe' %>
+  <%= link_to 'Cancel', root_url %>
+<% end %>
