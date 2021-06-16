@@ -16,16 +16,6 @@ class UserproductController < ApplicationController
     redirect_to request.referrer
   end
 
-  def search_by_category
-
-    to_show=ProductCategory.where(category_id: params[:category_id])
-    zmienna=[]
-    to_show.each do |prod|
-      zmienna << prod.product_id
-    end
-    @products=UserProduct.where(user_id: current_user.id, product_id: zmienna)
-  end
-
   def delete
     @userproduct=UserProduct.find_by(user_id: current_user.id, product_id: params[:product_id])
     if @userproduct.present?
